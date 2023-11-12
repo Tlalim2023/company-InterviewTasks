@@ -84,7 +84,6 @@ public class InterviewTasks {
 		Arrays.sort(first);
 		Arrays.sort(second);
 
-		// Сравниваем отсортированные массивы
 		isAnagram = Arrays.equals(first, second);
 
 		return isAnagram;
