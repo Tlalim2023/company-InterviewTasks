@@ -52,29 +52,42 @@ public class InterviewTasks {
 	 */
 	public static HashMap<String, Long> getMapOccurrences(String[] strings) {
 
-//		HashMap<String, Long> newMap = new HashMap<>();
-//		for (String el : strings){
-//			newMap.put(el,getCount(strings,el));
-//		}
 		HashMap<String, Long> map = new HashMap<>();
 
 		for (String el : strings){
-			map.merge(el, 1l, Long::sum);
+			map.merge(el, 1L, Long::sum);
 		}
 		if(!map.isEmpty()){
 			return map;
 		}
 		return null;
 	}
+	/**
+	 * Anagram of a string is another string containing all the symbols
+	 * from the string, but in different order (see the test cases)
+	 * @param string
+	 * @param anagram
+	 * @return true if the second parameter presents an anagram
+	 *  of the string from the first parameter, otherwise false
+	 */
+	public static boolean isAnagram(String string, String anagram) {
+		boolean isAnagram = false;
 
-//	public static long getCount(String[] strings, String elem){
-//		long number = 0;
-//		for(String num : strings){
-//			if(elem.equals(num)){
-//				number++;
-//			}
-//		}
-//		return number;
-//	}
+		var string1 = string.replaceAll("\\s", "").toLowerCase();
+		var anagram1 = anagram.replaceAll("\\s", "").toLowerCase();
+
+		if (string.length() != anagram.length() || string.equals(anagram)) {
+			return isAnagram;
+		}
+		char[] first = string1.toCharArray();
+		char[] second = anagram1.toCharArray();
+		Arrays.sort(first);
+		Arrays.sort(second);
+
+		// Сравниваем отсортированные массивы
+		isAnagram = Arrays.equals(first, second);
+
+		return isAnagram;
+	}
 
 }
