@@ -77,7 +77,7 @@ public class InterviewTasks {
 		var anagram1 = anagram.replaceAll("\\s", "").toLowerCase();
 
 		if (string.length() != anagram.length() || string.equals(anagram)) {
-			return isAnagram;
+			return false;
 		}
 		char[] first = string1.toCharArray();
 		char[] second = anagram1.toCharArray();
